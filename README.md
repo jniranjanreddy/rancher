@@ -16,3 +16,7 @@ It then enables detailed monitoring and alerting for clusters and their resource
 
 Rancher is a complete container management platform for Kubernetes, giving you the tools to successfully run Kubernetes anywhere.
 ```
+## How to install Rancher
+```
+docker run -d --restart=unless-stopped -p 8080:8080 rancher/server:stable
+```
