@@ -23,4 +23,7 @@ docker run -d --restart=unless-stopped -p 8080:8080 rancher/server:stable
 
 ```
 sudo docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/rancher:/var/lib/rancher rancher/agent:v1.2.11 http://192.168.9.127:8080/v1/scripts/D87F25F820E5330B9CAE:1672444800000:nxFx1XlexVT2PcMnjWvAB09qfY
+
+sudo docker run -e CATTLE_AGENT_IP="192.168.9.94"  --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/rancher:/var/lib/rancher rancher/agent:v1.2.11 http://192.168.9.127:8080/v1/scripts/D87F25F820E5330B9CAE:1672444800000:nxFx1XlexVT2PcMnjWvAB09qfY
+
 ```
