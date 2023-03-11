@@ -1,0 +1,39 @@
+nodes:
+    - address: 192.168.9.128
+      user: root
+      role:
+        - controlplane
+        - etcd
+      docker_socket: /var/run/docker.sock
+	    hostname_override: rkemas01.jnrlabs.com
+    - address: 192.168.9.129
+      user: root
+      role:
+        - worker
+	    hostname_override: rkenode01.jnrlabs.com
+	    labels:
+        app: ingress
+      taints:
+        - key: test-key
+          value: test-value
+          effect: NoSchedule
+	  
+	  - address: 192.168.9.130
+      user: root
+      role:
+        - worker
+	    hostname_override: rkenode02.jnrlabs.com
+	    labels:
+        app: ingress
+      taints:
+        - key: test-key
+          value: test-value
+          effect: NoSchedule
+ingress:
+  provider: nginx
+  node_selector:
+    app: ingress
+  update_strategy:
+    strategy: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 5
