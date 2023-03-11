@@ -7,6 +7,8 @@
 ```
 Supported Docker verion
 supported versions are [1.13.x 17.03.x 17.06.x 17.09.x 18.06.x 18.09.x 19.03.x 20.10.x]
+curl https://releases.rancher.com/install-docker/20.10.sh | sh
+
 
 
 usermod -aG docker devops
