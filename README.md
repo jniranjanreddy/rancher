@@ -4,11 +4,18 @@
 ![image](https://user-images.githubusercontent.com/83489863/222880002-bc02519b-3c71-4f68-a3e3-1070bb77effa.png)
 
 #Pre-requisites
+```
 usermod -aG docker devops
 
 echo "net.bridge.bridge-nf-call-iptables=1" >> /etc/sysctl.conf
-echo "AllowTcpForwarding yes" >> /etc/ssh/sshd_config   
+echo "AllowTcpForwarding yes" >> /etc/ssh/sshd_config  
 
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+kubectl version --client
+
+```
 
 ## What is Rancher?
 ```
