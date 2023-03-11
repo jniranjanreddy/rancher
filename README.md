@@ -58,6 +58,7 @@ Rancher is a complete container management platform for Kubernetes, giving you t
 ```
 ## How to install Rancher
 ```
+docker run -d --name=rancher-server --restart=unless-stopped -p 80:80 -p 443:443 --privileged rancher/rancher:v2.4.18
 docker run -d --restart=unless-stopped -p 8080:8080 rancher/server:stable
 ```
 
