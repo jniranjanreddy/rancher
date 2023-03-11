@@ -24,7 +24,19 @@ chmod +x rke_linux-amd64
 sudo mv rke_linux-amd64 /usr/local/bin/rke
 rke --version
 ```
+```
+root@rkemas01:/myworkspace# kubectl get nodes
+NAME                    STATUS   ROLES               AGE   VERSION
+rkemas01.jnrlabs.com    Ready    controlplane,etcd   52m   v1.24.10
+rkenode01.jnrlabs.com   Ready    worker              51m   v1.24.10
+rkenode02.jnrlabs.com   Ready    worker              51m   v1.24.10
 
+
+root@rkemas01:/myworkspace# rke config -l -a
+v1.23.16-rancher2-1
+v1.24.10-rancher4-1
+
+```
 ## What is Rancher?
 ```
 
