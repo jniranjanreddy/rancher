@@ -5,6 +5,10 @@
 
 #Pre-requisites
 ```
+Supported Docker verion
+supported versions are [1.13.x 17.03.x 17.06.x 17.09.x 18.06.x 18.09.x 19.03.x 20.10.x]
+
+
 usermod -aG docker devops
 
 echo "net.bridge.bridge-nf-call-iptables=1" >> /etc/sysctl.conf
