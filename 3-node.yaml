@@ -1,0 +1,15 @@
+nodes:
+    - address: 192.168.9.128
+      user: root
+      role:
+        - controlplane
+        - etcd
+      docker_socket: /var/run/docker.sock
+    - address: 192.168.9.129
+      user: root
+      role:
+        - worker
+	  - address: 192.168.9.130
+      user: root
+      role:
+        - worker
