@@ -6,6 +6,7 @@
 ## important urls
 ```
 https://rancher.com/docs/rke/latest/en/config-options/nodes/
+https://www.youtube.com/watch?v=MOiDMAxQ3RM&t=5389s
 ```
 #Pre-requisites
 ```
