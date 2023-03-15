@@ -34,6 +34,12 @@ chmod +x rke_linux-amd64
 sudo mv rke_linux-amd64 /usr/local/bin/rke
 rke --version
 ```
+## Cleanup rancher
+```
+docker rm -f $(docker ps -qa)
+docker rmi -f $(docker images -q)
+docker volume rm $(docker volume ls -q)
+```
 ```
 root@rkemas01:/myworkspace# kubectl get nodes
 NAME                    STATUS   ROLES               AGE   VERSION
