@@ -7,7 +7,6 @@ apt install resolvconf -y
 
 systemctl start resolvconf.service
 systemctl enable resolvconf.service
-systemctl status resolvconf.service
 
 
 echo "nameserver 192.168.9.200" >> /etc/resolvconf/resolv.conf.d/head
