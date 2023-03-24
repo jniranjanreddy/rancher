@@ -8,6 +8,10 @@
 https://rancher.com/docs/rke/latest/en/config-options/nodes/
 https://www.youtube.com/watch?v=MOiDMAxQ3RM&t=5389s
 https://www.ssyoutube.com/watch?v=1j5lhDzlFUM&t=2s
+
+#Ingress
+https://www.crowdcast.io/e/02152023_mc_nginx_1/1
+https://www.crowdcast.io/e/02222023_mc_nginx_2/1
 ```
 #Pre-requisites
 ```
