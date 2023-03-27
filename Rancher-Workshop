@@ -1,0 +1,38 @@
+## Rancker Desktop k3s
+
+```
+git clone https://github.com/nginxinc/nginx-ingress-workshops.git
+cd nginx-ingress-workshops/docs/
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.9/config/manifests/metallb-native.yaml
+kubectl apply -f IPAddressPool.yaml
+kubectl apply -f L2Advertisement.yaml
+
+# Helm
+helm repo add nginx-stable https://helm.nginx.com/stable
+helm repo update
+kubectl create namespace nginx-ingress
+kubectl config set-context --current --namespace=nginx-ingress
+
+helm install nic nginx-stable/nginx-ingress --namespace nginx-ingress --set controller.nginxStatus.enable=true --set controller.customPorts[0].containerPort=9000 --set controller.nginxStatus.port=9000 --set controller.nginxStatus.allowCidrs=0.0.0.0/0 --set prometheus.create=true
+
+
+helm install nic nginx-stable/nginx-ingress --namespace nginx-ingress --set controller.nginxStatus.enable=true --set controller.customPorts[0].containerPort=9000 --set controller.nginxStatus.port=9000 --set controller.nginxStatus.allowCidrs=0.0.0.0/0 --set prometheus.create=true --set controller.customConfigMap=nic-nginx-config --set controller.enableSnippets=true
+kubectl get all -n nginx-ingress
+
+
+# lab2
+
+helm uninstall nic -n nginx-ingress
+kubectl apply -f lab2/nginx-config.yaml
+helm install nic nginx-stable/nginx-ingress -n nginx-ingress -f lab2/lab2_values.yaml
+
+export NIC=$(kubectl get pods -n nginx-ingress -o jsonpath='{.items[0].metadata.name}')
+echo $NIC
+
+kubectl port-forward -n nginx-ingress $NIC 9000:9000
+Now open Chrome web browser to view the NGINX Stub Status webpage, at http://localhost:9000/stub_status.html.
+
+
+
+
+```
