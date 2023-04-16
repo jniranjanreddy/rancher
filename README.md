@@ -1,6 +1,10 @@
 ## 
 SSl/TLS - https://www.youtube.com/watch?v=ITuAnm3d-UI
 
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -out example123-tls.crt -keyout example123-tls.key -subj "/CN=cart.example123.com/O=example123-tls"
+kubectl create secret tls example123-tls --namespace nginx-ingress --key example123-tls.key --cert example123-tls.crt
+
+
 ![image](https://user-images.githubusercontent.com/83489863/222880002-bc02519b-3c71-4f68-a3e3-1070bb77effa.png)
 
 ## important urls
