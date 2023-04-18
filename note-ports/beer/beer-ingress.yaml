@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+  name: beer-ingress
+  namespace: ingress-nginx
+spec:
+  defaultBackend:
+    service:
+      name: beer-service
+      port:
+        number: 8085
+  ingressClassName: nginx
+  rules:
+    - host: beer.mylabs.com
+  tls:
+    - hosts:
+        - beer
+      secretName: bar-tls
+status:
+  loadBalancer:
+    ingress:
+      - ip: 192.168.9.129
+      - ip: 192.168.9.130
+

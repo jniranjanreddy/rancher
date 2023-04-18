@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+  name: tea-ingress
+  namespace: ingress-nginx
+spec:
+  defaultBackend:
+    service:
+      name: tea-service
+      port:
+        number: 8082
+  ingressClassName: nginx
+  rules:
+    - host: tea.mylabs.com
+  tls:
+    - hosts:
+        - tea
+      secretName: cafe-tls
+status:
+  loadBalancer:
+    ingress:
+      - ip: 192.168.9.129
+      - ip: 192.168.9.130
+

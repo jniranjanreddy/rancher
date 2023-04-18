@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+  name: cosmo-ingress
+  namespace: ingress-nginx
+spec:
+  defaultBackend:
+    service:
+      name: cosmo-service
+      port:
+        number: 8087
+  ingressClassName: nginx
+  rules:
+    - host: cosmo.mylabs.com
+  tls:
+    - hosts:
+        - cosmo
+      secretName: bar-tls
+status:
+  loadBalancer:
+    ingress:
+      - ip: 192.168.9.129
+      - ip: 192.168.9.130
+
