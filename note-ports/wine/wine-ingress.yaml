@@ -12,14 +12,14 @@ spec:
         number: 8086
   ingressClassName: nginx
   rules:
-    - host: wine.mylabs.com
+    - host: wine.rlabs.com
   tls:
     - hosts:
         - wine
       secretName: bar-tls
-status:
-  loadBalancer:
-    ingress:
-      - ip: 192.168.9.129
-      - ip: 192.168.9.130
+      #status:
+      #loadBalancer:
+      #ingress:
+      #- ip: 192.168.9.129
+      #- ip: 192.168.9.130
 
