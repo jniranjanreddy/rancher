@@ -12,7 +12,7 @@ spec:
         number: 8085
   ingressClassName: nginx
   rules:
-    - host: beer.mylabs.com
+    - host: bar.rlabs.com
   tls:
     - hosts:
         - beer
@@ -20,6 +20,5 @@ spec:
 status:
   loadBalancer:
     ingress:
-      - ip: 192.168.9.129
-      - ip: 192.168.9.130
+      - ip: 192.168.9.134
 
