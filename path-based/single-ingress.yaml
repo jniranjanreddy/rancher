@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+  name: cafe
+  namespace: cafe
+spec:
+  rules:
+  - host: cafe.rlabs.com
+    http:
+      paths:
+      - path: /samosa
+        pathType: Prefix
+        backend:
+          service:
+            name: samosa-svc
+            port:
+              number: 80
+  tls:
+    - hosts:
+        - cafe
+      secretName: cafe-tls
