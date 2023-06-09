@@ -9,3 +9,13 @@ kubectl create secret generic authorization \
 --from-literal=Environment=dev \
 --from-literal=LOB=healthcare
 ```
+
+## create Secrets
+```
+kubectl create secret generic for-testing --from-literal=USERNAME=devops --from-literal=PASSWORD=password
+```
+## Updating/patching a secrets
+## NOTE:  the valuse should be in base64
+```
+kubectl patch secret for-testing --type='json' -p='[{"op" : "replace" ,"path" : "/data/USERNAME" ,"value" : "Njc4OTEwCg=="}]'
+```
