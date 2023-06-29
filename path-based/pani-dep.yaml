@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: pani
-  namespace: cafe
+  namespace: cattle-logging-system
 spec:
   replicas: 2
   selector:

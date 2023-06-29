@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+  name: postgres-ingress
+  namespace: ingress-nginx
+spec:
+  defaultBackend:
+    service:
+      name: postgres-postgresql-ha-pgpool
+      port:
+        number: 5432
+  ingressClassName: nginx
+  rules:
+    - host: postgres.rlabs.com
+  tls:
+    - hosts:
+        - postgres.rlabs.com
+      secretName: bar-tls
+status:
+  loadBalancer:
+    ingress:
+      - ip: 192.168.9.134
+
